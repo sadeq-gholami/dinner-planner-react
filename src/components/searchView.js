@@ -15,6 +15,7 @@ class SearchView extends Component {
         this.props.model.addObserver((param)=>{
             this.setState({searchedDishes:param}); 
         });
+         this.props.model.notifyObservers();
     } 
     searchTextChanged = (searchText)=>{
         this.state.searchText = searchText;
