@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import PrintoutPresentation from '../presentation/printoutPresentation';
 class PrintoutView extends Component {
-    state = {  }
+    state ={
+        menu: this.props.model.getFullMenu(),
+        fullPrice: this.props.model.getTotalMenuPrice(),
+        numberOfGuests:this.props.model.getNumberOfGuests()
+    };
     render() { 
         return ( 
             <div id="container-printout">
-                <h1>printout view</h1>
+                <PrintoutPresentation menu ={this.state.menu} numberOfGuests={this.state.numberOfGuests} />
             </div>
          );
     }

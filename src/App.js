@@ -16,7 +16,7 @@ class App extends Component {
   render() { 
     return (  
       <Router>
-        <div className="container page-content">
+        <React.Fragment>
             <HeaderView/>
             <Route  exact path="/" render={
                 (props) => <HomeView {...props} model={this.state.model} />
@@ -43,7 +43,7 @@ class App extends Component {
                 }
                 />
             
-        </div>
+        </React.Fragment>
       </Router>
      );
   }

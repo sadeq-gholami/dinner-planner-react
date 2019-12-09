@@ -74,15 +74,9 @@ export default class DinnerModel {
     //Adds the passed dish to the menu. If the dish of that type already exists on the menu
     //it is removed from the menu and the new one added.
     addDishToMenu(dish) {
-      //TODO Lab 1
-      if (!this.selectedDishes){
-        this.selectedDishes=[];
-      }
-      if(this.selectedDishes) {
-        this.selectedDishes = this.selectedDishes.filter(adish => {
-          return !adish.dishTypes.some(item => dish.dishTypes.includes(item));
-        });
-      }
+          this.selectedDishes = this.selectedDishes.filter(adish => {
+            return !adish.dishTypes.some(item => dish.dishTypes.includes(item));
+          });
       this.selectedDishes.push(dish);
       this.notifyObservers(dish);
     }

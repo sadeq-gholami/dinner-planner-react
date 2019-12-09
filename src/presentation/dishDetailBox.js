@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import LoeaderComponent from './loaderComponent';
+import {Link} from 'react-router-dom';
 
-const DishDetailsBox= ({dish, numberOfGuests})=>{
-    let ingTotal= 0;
+const DishDetailsBox= ({dish, numberOfGuests, buttonClicked})=>{
+    
     if (dish.length ===0){
         return <LoeaderComponent/>
     }
     else{
+        let ingTotal= 0;
         return(
             <div className="details-box-grid">
                 <div id="dishDetails">
                     <h1 id="dishTitle">{dish.title}</h1>
                     <img id="dishPicture" src={dish.image} alt="could not load image"/>
                     <div id="dishInstructions" dangerouslySetInnerHTML={{__html: dish.instructions}}/>
-                    <button id="backButton" className="btn">Back to search view</button>
+                    <Link to= "/search">
+                    <button className="btn">Back to search view</button>
+                    </Link>
                 </div>
                     <div id="ingredientsBox">
                         <b>Ingredients for {numberOfGuests} people</b>
@@ -33,7 +37,7 @@ const DishDetailsBox= ({dish, numberOfGuests})=>{
                             <hr/>
                             <div className="ingTotal"><span> Total </span>{"SEK " + ingTotal}</div>
                         </div>
-                        <button id={"addButton"} className="btn">Add to menu</button>
+                        <button className="btn" onClick ={buttonClicked}>Add to menu</button>
                     </div>
             </div>
         );
@@ -42,9 +46,9 @@ const DishDetailsBox= ({dish, numberOfGuests})=>{
 }
 export default DishDetailsBox;
 
-const ExtendedIngredientsRow =({ing, ingTotal})=> {
+const ExtendedIngredientsRow =({ing ,ingTotal} )=> {
     let amount =Math.floor(Math.random() * 10);
-    ingTotal += amount;
+    ingTotal+= amount;
     return(
         <tr>
             <td>{ing.amount + " " + ing.unit}</td>
