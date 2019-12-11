@@ -120,7 +120,7 @@ export default class DinnerModel {
   
   //Returns a dish of specific ID
     getDish(id) {
-      return fetch(ENDPOINT+`/recipes/${id}/information`,{
+      return fetch(ENDPOINT +`/recipes/${id}/information`,{
         "method": "GET",
         "headers" : {
           "X-Mashape-Key": API_KEY

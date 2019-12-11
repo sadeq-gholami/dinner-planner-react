@@ -3,8 +3,8 @@ const SearchFormComponent=({buttonClicked, dishTypeChanged, searchTextChanged})=
         return (  
         <React.Fragment>
             <h2>Find A Dish</h2>
-            <input type="text" onChange={e => searchTextChanged(e.target.value) }/>
-            <select defaultValue = "all" onChange={ e => dishTypeChanged(e.target.value)}>
+            <input type="text" defaultValue={sessionStorage.getItem("searchText")} onChange={e => searchTextChanged(e.target.value) }/>
+            <select defaultValue = {sessionStorage.getItem("dishType")}onChange={ e => dishTypeChanged(e.target.value)}>
                 <option value ="">all</option>
                 <option value="Main Course" >Main Course</option>
                 <option value="Side Dish" >Side Dish</option>

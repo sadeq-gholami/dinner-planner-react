@@ -18,10 +18,14 @@ class SearchView extends Component {
     } 
     searchTextChanged = (searchText)=>{
         this.state.searchText = searchText;
+        sessionStorage.setItem("searchText", searchText);
     }
     dishTypeChanged=(dishType)=>{
         this.state.dishType= dishType;
+        sessionStorage.setItem("dishType", dishType);
     }
+
+
     render() { 
         return ( 
         <div id="container-search" className= "details-box">
