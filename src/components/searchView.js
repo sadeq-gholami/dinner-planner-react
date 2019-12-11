@@ -48,7 +48,7 @@ class SearchView extends Component {
          node.querySelector("#searchResult").style.display = "none";
         this.props.model.getAllDishes(this.state.dishType, this.state.searchText).then(dishes => {
                 this.props.model.addSearchDishes(dishes);
-                localStorage.setItem("searchedDishes", JSON.stringify(dishes));
+            sessionStorage.setItem("searchedDishes", JSON.stringify(dishes));
             }
         ).catch(er => console.log(er))
         .finally(  () => {

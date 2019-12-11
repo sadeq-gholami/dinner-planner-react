@@ -30,11 +30,11 @@ class SidevarView extends Component {
     }
     removeDish=(dishId)=>{
         this.props.model.removeDishFromMenu(dishId);
-        localStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
+        sessionStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
     }
     setNumberOfGuests=(gnr)=>{
         this.props.model.setNumberOfGuests(gnr);
-         localStorage.setItem("gnr",gnr);
+        sessionStorage.setItem("gnr",gnr);
     }
 }
  

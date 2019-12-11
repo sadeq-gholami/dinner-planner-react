@@ -93,7 +93,7 @@ export default class DinnerModel {
     //if you don't pass any query, all the dishes will be returned
     getAllDishes(type, query) {
        //we create a URL object.
-       let url = new URL(ENDPOINT + "/recipes/search");
+       let url = new URL(ENDPOINT() + "/recipes/search");
 
        //if getAllDishes is called with type, then add the type to url as a parameter.
        if (type) {
@@ -106,12 +106,12 @@ export default class DinnerModel {
  
        //if getAllDishes is called without query or type.
        if (!type && !query) {
-         url = new URL(ENDPOINT + "/recipes/search?number=10&offset=0");
+         url = new URL(ENDPOINT() + "/recipes/search?number=10&offset=0");
        }
      return fetch(url.toString(),{
        "method": "GET",
        "headers" : {
-         "X-Mashape-Key": API_KEY
+         "X-Mashape-Key": API_KEY()
        }}).catch(er=>console.log(er))
          .then(response => response.json())
          .then(res => res.results);
@@ -120,10 +120,10 @@ export default class DinnerModel {
   
   //Returns a dish of specific ID
     getDish(id) {
-      return fetch(ENDPOINT+`/recipes/${id}/information`,{
+      return fetch(ENDPOINT()+`/recipes/${id}/information`,{
         "method": "GET",
         "headers" : {
-          "X-Mashape-Key": API_KEY
+          "X-Mashape-Key": API_KEY()
         }})
           //.then(response => this.handleHTTPError(response))
           .then(response => response.json());

@@ -39,7 +39,7 @@ class DetailsView extends Component {
     }
     addDishToMenu =()=>{
         this.props.model.addDishToMenu(this.state.searchedDish);
-        localStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
+        sessionStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
     }
 }
 
