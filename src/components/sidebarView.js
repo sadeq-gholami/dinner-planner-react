@@ -5,9 +5,9 @@ class SidevarView extends Component {
         super(props);
         this.state ={
             menu: this.props.model.getFullMenu(),
-            fullPrice: 0,
-            numberOfGuests:0
-        };
+            price:0,
+            numberOfGuests:this.props.model.getNumberOfGuests()
+        }
         this.props.model.addObserver((param)=>{
                 this.setState({menu:this.props.model.getFullMenu(),
                     fullPrice: this.props.model.getTotalMenuPrice(),
@@ -21,12 +21,20 @@ class SidevarView extends Component {
                 <SideBarpresentaion 
                     menu={this.state.menu}
                     price ={this.state.fullPrice}
-                    remove={dishId=>this.props.model.removeDishFromMenu(dishId)}
+                    remove={dishId=>this.removeDish(dishId)}
                     numberOfGuests={this.state.numberOfGuests}
-                    changeNumberOfGuests={gnr =>this.props.model.setNumberOfGuests(gnr)}
+                    changeNumberOfGuests={gnr =>this.setNumberOfGuests(gnr)}
                     />
             </div>
          );
+    }
+    removeDish=(dishId)=>{
+        this.props.model.removeDishFromMenu(dishId);
+        localStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
+    }
+    setNumberOfGuests=(gnr)=>{
+        this.props.model.setNumberOfGuests(gnr);
+         localStorage.setItem("gnr",gnr);
     }
 }
  

@@ -12,12 +12,13 @@ class DetailsView extends Component {
             //if (param && this.props.model.searchedDish && param.id === this.props.model.searchedDish.id)
              this.setState({searchedDish:this.props.model.searchedDish, numberOfGuests:this.props.model.getNumberOfGuests()}); 
         });
-        
+
     } 
     componentWillMount(){
         this.getDishFromAPI();
     }
     render() { 
+        console.log(this.props.match)
         return (
             <div id="container-details">
                     <CollapsibleButton/>
@@ -38,7 +39,7 @@ class DetailsView extends Component {
     }
     addDishToMenu =()=>{
         this.props.model.addDishToMenu(this.state.searchedDish);
-        console.log(this.props.model.getFullMenu());
+        localStorage.setItem("menu",JSON.stringify(this.props.model.getFullMenu()));
     }
 }
 

@@ -12,6 +12,15 @@ class App extends Component {
   constructor(){
     super();
     this.state={model : new DinnerModel}
+    if (localStorage.getItem("menu")!==null){
+      this.state.model.selectedDishes = JSON.parse(localStorage.getItem("menu"));
+    }
+    if (localStorage.getItem("searchedDishes")!==null){
+      this.state.model.searchedDishes = JSON.parse(localStorage.getItem("searchedDishes"));
+    }
+    if (localStorage.getItem("gnr")!==0){
+      this.state.model.numberOfGuests = localStorage.getItem("gnr");
+    }
   }
   render() { 
     return (  

@@ -5,7 +5,11 @@ import {Link} from 'react-router-dom';
 const DishDetailsBox= ({dish, numberOfGuests, buttonClicked})=>{
     
     if (dish.length ===0){
-        return <LoeaderComponent/>
+        return (
+            <div className="center-content">
+             <LoeaderComponent />
+            </div>
+        )
     }
     else{
         let ingTotal= 0;
