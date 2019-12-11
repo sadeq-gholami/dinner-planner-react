@@ -17,8 +17,7 @@ class DetailsView extends Component {
     componentWillMount(){
         this.getDishFromAPI();
     }
-    render() { 
-        console.log(this.props.match)
+    render() {
         return (
             <div id="container-details">
                     <CollapsibleButton/>

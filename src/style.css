@@ -227,7 +227,7 @@ body{
 }
 .dishPic-and-title-overview{
     display: grid;
-    max-width: 200px;
+    max-width: 205px;
     border: 2px solid black;
     margin: 10px;
     cursor: pointer;
