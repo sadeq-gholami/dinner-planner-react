@@ -26,7 +26,7 @@ class App extends Component {
               (props) => <SidebarView {...props} model={this.state.model} />
               }
               />
-            <Route path = "/search" render={
+            <Route path="/search" render={
                 (props) => <SearchView {...props} model={this.state.model} />
                 }
                 />

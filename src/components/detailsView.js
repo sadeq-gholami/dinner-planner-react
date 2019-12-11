@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import CollapsibleButton from '../presentation/collapsibleButton';
-import LoeaderComponent from '../presentation/loaderComponent';
-import ReactDOM from 'react-dom';
 import DishDetailsBox from '../presentation/dishDetailBox';
 class DetailsView extends Component {
     constructor(props){

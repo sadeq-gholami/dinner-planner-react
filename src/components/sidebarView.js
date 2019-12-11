@@ -4,7 +4,7 @@ class SidevarView extends Component {
     constructor(props){
         super(props);
         this.state ={
-            menu: [],
+            menu: this.props.model.getFullMenu(),
             fullPrice: 0,
             numberOfGuests:0
         };
