@@ -5,7 +5,7 @@ body{
     display: grid;
     margin: 0px;
     margin-right: 0px;
-    grid-template-columns: minmax(min-content, max-content) minmax(75%, 3fr) ;
+    grid-template-columns: minmax(min-content, max-content) minmax(100%, 3fr) ;
     grid-template-areas:
             "header header"
             "sidebar details";
