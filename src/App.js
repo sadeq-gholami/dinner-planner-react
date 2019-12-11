@@ -18,7 +18,7 @@ class App extends Component {
     if (localStorage.getItem("searchedDishes")!==null){
       this.state.model.searchedDishes = JSON.parse(localStorage.getItem("searchedDishes"));
     }
-    if (localStorage.getItem("gnr")!==0){
+    if (localStorage.getItem("gnr")!==null){
       this.state.model.numberOfGuests = localStorage.getItem("gnr");
     }
   }

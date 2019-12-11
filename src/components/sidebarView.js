@@ -5,12 +5,12 @@ class SidevarView extends Component {
         super(props);
         this.state ={
             menu: this.props.model.getFullMenu(),
-            price:0,
+            price:this.props.model.getTotalMenuPrice(),
             numberOfGuests:this.props.model.getNumberOfGuests()
         }
         this.props.model.addObserver((param)=>{
                 this.setState({menu:this.props.model.getFullMenu(),
-                    fullPrice: this.props.model.getTotalMenuPrice(),
+                    price: this.props.model.getTotalMenuPrice(),
                     numberOfGuests:this.props.model.getNumberOfGuests()}); 
         });
     } 
@@ -20,7 +20,7 @@ class SidevarView extends Component {
             <div id="container-sidebar" className = "side-bar content">
                 <SideBarpresentaion 
                     menu={this.state.menu}
-                    price ={this.state.fullPrice}
+                    price ={this.state.price}
                     remove={dishId=>this.removeDish(dishId)}
                     numberOfGuests={this.state.numberOfGuests}
                     changeNumberOfGuests={gnr =>this.setNumberOfGuests(gnr)}
